@@ -6,7 +6,10 @@
   "scripts": {
     "build": "webpack",
     "build:prod": "webpack -p",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "client": "cd client && npm start",
+    "server" : "nodemon index.js",
+    "dev" : "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Tommy Baloukas",
   "license": "ISC",
