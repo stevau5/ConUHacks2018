@@ -14,6 +14,9 @@ dotenv.config();
 // NEW EXPRESS APP INSTANTIATION
 const app = express();
 
+// USE EJS
+app.set('view engine', 'ejs');
+
 // SET UP APP USE
 app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({extended:false}));
@@ -29,5 +32,7 @@ app.use('/',webRoutes);
 require('./routes/conversation')(app);
 require('./routes/speech-to-text')(app);
 require('./routes/text-to-speech')(app);
+
+// require()
 
 export default app;
