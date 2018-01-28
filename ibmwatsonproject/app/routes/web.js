@@ -95,9 +95,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var webRoutes = (0, _express2.default)();
 
-webRoutes.get('/', function () {
+webRoutes.get('/', function (req, res) {
 
-	res.render('views/index');
+	res.render('index');
 });
 
 exports.default = webRoutes;

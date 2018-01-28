@@ -3,9 +3,9 @@ import fs from 'fs';
 
 const webRoutes = express();
 
-webRoutes.get('/',function(){
+webRoutes.get('/',function(req,res){
 
-	res.render('views/index');
+	res.render('index');
 
 });
 

@@ -125,9 +125,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var webRoutes = (0, _express2.default)();
 
-webRoutes.get('/', function () {
+webRoutes.get('/', function (req, res) {
 
-	res.render('views/index');
+	res.render('index');
 });
 
 exports.default = webRoutes;
@@ -289,7 +289,7 @@ module.exports = function initSpeechToText(app) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(__dirname) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -311,6 +311,10 @@ var _path = __webpack_require__(12);
 
 var _path2 = _interopRequireDefault(_path);
 
+var _ejs = __webpack_require__(13);
+
+var _ejs2 = _interopRequireDefault(_ejs);
+
 var _api = __webpack_require__(3);
 
 var _api2 = _interopRequireDefault(_api);
@@ -323,12 +327,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // REQUIRE .env FILE
 
-
 // CUSTOM FILES
-// NPM DEPENDENCIES
 _dotenv2.default.config();
 
 // NEW EXPRESS APP INSTANTIATION
+// NPM DEPENDENCIES
 var app = (0, _express2.default)();
 
 // USE EJS
@@ -352,7 +355,11 @@ __webpack_require__(8)(app);
 
 // require()
 
+app.use('/assets', _express2.default.static(__dirname + "public"));
+console.log(__dirname + "views/css");
+
 exports.default = app;
+/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
 /* 10 */
@@ -371,6 +378,12 @@ module.exports = require("body-parser");
 /***/ (function(module, exports) {
 
 module.exports = require("path");
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+module.exports = require("ejs");
 
 /***/ })
 /******/ ]);

@@ -35,4 +35,7 @@ require('./routes/text-to-speech')(app);
 
 // require()
 
+app.use('/assets',express.static(__dirname + "public"));
+console.log(__dirname + "views/css");
+
 export default app;
