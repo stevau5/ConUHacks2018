@@ -8,9 +8,6 @@ import path from 'path';
 import apiRoutes from './routes/api';
 import webRoutes from './routes/web';
 
-//.env file
-require('dotenv').config();
-
 // REQUIRE .env FILE
 dotenv.config();
 
