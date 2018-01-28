@@ -8,8 +8,8 @@
     "build:prod": "webpack -p",
     "watch": "webpack --watch",
     "client": "cd client && npm start",
-    "server" : "nodemon index.js",
-    "dev" : "concurrently \"npm run server\" \"npm run client\""
+    "server": "nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Tommy Baloukas",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "mongoose": "^4.13.9",
     "nodemon": "^1.14.11",
     "request": "^2.83.0",
+    "watson-developer-cloud": "^3.0.5",
     "webpack": "^3.10.0"
   },
   "devDependencies": {

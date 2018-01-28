@@ -2,7 +2,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
 import path from 'path';
 
 // CUSTOM FILES
@@ -24,9 +23,5 @@ app.use('/api',apiRoutes);
 
 // Use Web routes
 app.use('/',webRoutes);
-
-// database connection
-// mongoose.connect('mongodb://'+process.env.DB_USERNAME+':'+process.env.DB_PASSWORD+'@ds249757.mlab.com:49757/golfbot',{useMongoClient: true});
-// mongoose.Promise = global.Promise;
 
 export default app;
