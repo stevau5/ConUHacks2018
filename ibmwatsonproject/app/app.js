@@ -355,7 +355,7 @@ __webpack_require__(8)(app);
 
 // require()
 
-app.use('/assets', _express2.default.static(__dirname + "public"));
+app.use('/assets', _express2.default.static("public"));
 console.log(__dirname + "views/css");
 
 exports.default = app;
