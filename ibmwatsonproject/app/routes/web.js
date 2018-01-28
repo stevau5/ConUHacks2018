@@ -60,32 +60,34 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
+/* 0 */,
+/* 1 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 2 */,
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
-var _express = __webpack_require__(0);
+var _express = __webpack_require__(1);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _fs = __webpack_require__(3);
+var _fs = __webpack_require__(5);
 
 var _fs2 = _interopRequireDefault(_fs);
 
@@ -93,10 +95,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var webRoutes = (0, _express2.default)();
 
+webRoutes.get('/', function (req, res) {
+
+	res.render('index');
+});
+
 exports.default = webRoutes;
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ (function(module, exports) {
 
 module.exports = require("fs");

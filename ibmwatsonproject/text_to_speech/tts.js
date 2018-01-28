@@ -1,6 +1,6 @@
 var TextToSpeechV1 = require('watson-developer-cloud/text-to-speech/v1');
 var fs = require('fs');
-var string_for_watson = 'Hey Nick, the Iphone X really is nothing special';
+var string_for_watson = 'Hey Cory, thanks for coming to visit our hack a thonn station!';
 var text_to_speech = new TextToSpeechV1({
   "url": "https://stream.watsonplatform.net/text-to-speech/api",
   "username": "0ce49d7f-3020-412d-b5ae-d96e8d470f44",

@@ -16,7 +16,10 @@ module.exports = {
     'app/app' : './resources/assets/js/app.js',
     'index' : './resources/assets/js/index.js',
     'app/routes/api' : './resources/assets/js/routes/api',
-    'app/routes/web' : './resources/assets/js/routes/web'
+    'app/routes/web' : './resources/assets/js/routes/web',
+    'app/routes/conversation':'./resources/assets/js/routes/conversation',
+    'app/routes/speech-to-text':'./resources/assets/js/routes/speech-to-text',
+    'app/routes/text-to-speech':'./resources/assets/js/routes/text-to-speech'
   },
   target: 'node',
   output: {
@@ -33,6 +36,12 @@ module.exports = {
         }
     }]
   },
+    resolve :{
+        alias : {
+
+        },
+        extensions : ['.js','.jsx']
+    },
   externals: nodeModules,
   devtool: 'sourcemap'
-}
+};
