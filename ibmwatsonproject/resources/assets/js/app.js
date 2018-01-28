@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
-
+import ejs from 'ejs';
 // CUSTOM FILES
 import apiRoutes from './routes/api';
 import webRoutes from './routes/web';
