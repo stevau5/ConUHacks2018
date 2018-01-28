@@ -110,7 +110,7 @@ exports.default = apiRoutes;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
 var _express = __webpack_require__(1);
@@ -124,6 +124,11 @@ var _fs2 = _interopRequireDefault(_fs);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var webRoutes = (0, _express2.default)();
+
+webRoutes.get('/', function () {
+
+	res.render('views/index');
+});
 
 exports.default = webRoutes;
 
@@ -326,6 +331,9 @@ _dotenv2.default.config();
 // NEW EXPRESS APP INSTANTIATION
 var app = (0, _express2.default)();
 
+// USE EJS
+app.set('view engine', 'ejs');
+
 // SET UP APP USE
 app.use(_express2.default.static('./public'));
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
@@ -341,6 +349,8 @@ app.use('/', _web2.default);
 __webpack_require__(6)(app);
 __webpack_require__(7)(app);
 __webpack_require__(8)(app);
+
+// require()
 
 exports.default = app;
 
