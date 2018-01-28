@@ -60,49 +60,63 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */,
-/* 1 */
+/* 0 */
 /***/ (function(module, exports) {
 
-module.exports = require("express");
+module.exports = require("watson-developer-cloud");
 
 /***/ }),
-/* 2 */,
+/* 1 */,
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("vcap_services");
+
+/***/ }),
 /* 3 */,
-/* 4 */
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var watson = __webpack_require__(0);
+var vcapServices = __webpack_require__(2);
 
-var _express = __webpack_require__(1);
+var credentials = Object.assign({
+  username: process.env.SPEECH_TO_TEXT_USERNAME,
+  password: process.env.SPEECH_TO_TEXT_PASSWORD,
+  url: process.env.SPEECH_TO_TEXT_URL || 'https://stream.watsonplatform.net/speech-to-text/api',
+  version: 'v1'
+}, vcapServices.getCredentials('speech_to_text'));
 
-var _express2 = _interopRequireDefault(_express);
+var authorizationService = watson.authorization(credentials);
 
-var _fs = __webpack_require__(5);
+// Inform user that TTS is not configured properly or at all
+if (!credentials || !credentials.username) {
+  // eslint-disable-next-line
+  console.warn('WARNING: The app has not been configured with a SPEECH_TO_TEXT_USERNAME and/or ' + 'a SPEECH_TO_TEXT_PASSWORD environment variable. If you wish to have text to speech ' + 'in your working application, please refer to the https://github.com/watson-developer-cloud/car-dashboard ' + 'README documentation on how to set these variables.');
+}
 
-var _fs2 = _interopRequireDefault(_fs);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var webRoutes = (0, _express2.default)();
-
-exports.default = webRoutes;
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-module.exports = require("fs");
+module.exports = function initTextToSpeech(app) {
+  app.get('/api/speech-to-text/token', function (req, res, next) {
+    return authorizationService.getToken({ url: credentials.url }, function (error, token) {
+      if (error) {
+        if (error.code !== 401) return next(error);
+      } else {
+        res.send(token);
+      }
+    });
+  });
+};
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=web.js.map
+//# sourceMappingURL=speech-to-text.js.map

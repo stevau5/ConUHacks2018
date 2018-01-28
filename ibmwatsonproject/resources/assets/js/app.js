@@ -15,6 +15,7 @@ dotenv.config();
 const app = express();
 
 // SET UP APP USE
+app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
@@ -23,5 +24,10 @@ app.use('/api',apiRoutes);
 
 // Use Web routes
 app.use('/',webRoutes);
+
+// Configure the Watson services
+require('./routes/conversation')(app);
+require('./routes/speech-to-text')(app);
+require('./routes/text-to-speech')(app);
 
 export default app;

@@ -14,6 +14,8 @@
   "author": "Tommy Baloukas",
   "license": "ISC",
   "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "dotenv": "^4.0.0",
