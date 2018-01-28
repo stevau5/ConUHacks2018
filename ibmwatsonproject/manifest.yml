@@ -1,0 +1,19 @@
+---
+declared-services:
+  # Conversation Service
+    Conversation-Demo:
+      label: conversation
+      plan: free
+    # Speech to Text Service
+    Speech to Text-Demo:
+      label: speech_to_text
+      plan: lite
+    # Text to Speech
+    Text to Speech-Demo:
+      label: text_to_speech
+      plan: lite
+applications:
+- name: watsonhelp
+  command: npm run server
+  path: .
+  memory: 256M
