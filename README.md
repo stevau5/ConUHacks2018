@@ -10,5 +10,5 @@
 
 - Watson API -> Speech Recognition software in order to listen out for help commands.
 
-- Javascript full stack
+Utilizing the Watson API, we were able to create a bot that could listen out for commands and reply with incident specific responses. 
 
